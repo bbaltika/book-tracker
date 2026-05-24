@@ -1,0 +1,15 @@
+def delete_book(books):
+    if not books:
+        print("Нет книг для удаления.")
+        return
+    show_all_books(books)
+    try:
+        idx = int(input("\nВведите номер книги для удаления: ").strip())
+        if 1 <= idx <= len(books):
+            removed = books.pop(idx - 1)
+            save_books(books)
+            print(f"Книга «{removed['title']}» удалена.")
+        else:
+            print("Ошибка: неверный номер.")
+    except ValueError:
+        print("Ошибка: введите число.")

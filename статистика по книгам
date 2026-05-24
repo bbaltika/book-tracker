@@ -1,0 +1,7 @@
+def show_average_rating(books):
+    if not books:
+        print("Нет книг для расчёта средней оценки.")
+        return
+    total = sum(book['rating'] for book in books)
+    avg = total / len(books)
+    print(f"\nСредняя оценка всех книг: {avg:.2f}")

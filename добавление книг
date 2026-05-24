@@ -1,0 +1,28 @@
+def add_book(books):
+    print("\nДобавление книги")
+    author = input("Автор: ").strip()
+    title = input("Название: ").strip()
+    if not author or not title:
+        print("Ошибка: автор и название не могут быть пустыми.")
+        return
+
+    if is_duplicate(books, author, title):
+        print("Ошибка: такая книга уже есть.")
+        return
+
+    try:
+        rating = int(input("Оценка (1-5): ").strip())
+        if rating < 1 or rating > 5:
+            print("Ошибка: оценка должна быть от 1 до 5.")
+            return
+    except ValueError:
+        print("Ошибка: введите целое число.")
+        return
+    books.append({
+        "author": author,
+        "title": title,
+        "rating": rating,
+        "date": date_str
+    })
+    save_books(books)
+    print("Книга успешно добавлена!")

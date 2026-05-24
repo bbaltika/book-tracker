@@ -1,0 +1,18 @@
+def load_books():
+    if not os.path.exists(dafileta):
+        return []
+    with open(dafileta, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return []
+
+def save_books(books):
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(books, f, ensure_ascii=False, indent=2)
+
+def is_duplicate(books, author, title):
+    for book in books:
+        if book["author"].lower() == author.lower() and book["title"].lower() == title.lower():
+            return True
+    return False

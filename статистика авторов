@@ -1,0 +1,11 @@
+def author_statistics(books):
+    if not books:
+        print("Нет книг для статистики.")
+        return
+    stats = {}
+    for book in books:
+        author = book['author']
+        stats[author] = stats.get(author, 0) + 1
+    print("\nСтатистика по авторам")
+    for author, count in stats.items():
+        print(f"{author}: {count} книг(а)")

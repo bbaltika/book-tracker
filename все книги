@@ -1,0 +1,7 @@
+def show_all_books(books):
+    print("\nСписок книг")
+    if not books:
+        print("Нет добавленных книг.")
+        return
+    for idx, book in enumerate(books, start=1):
+        print(f"{idx}. {book['author']} — «{book['title']}», оценка: {book['rating']}, прочитано: {book['date']}")

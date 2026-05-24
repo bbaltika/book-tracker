@@ -1,0 +1,28 @@
+def main():
+    books = load_books()
+    while True:
+        print("\nТрекер прочитанных книг")
+        print("1. Добавить книгу")
+        print("2. Показать все книги")
+        print("3. Показать среднюю оценку")
+        print("4. Статистика по авторам")
+        print("5. Удалить книгу")
+        print("6. Выход")
+        choice = input("Выберите действие: ").strip()
+        if choice == "1":
+            add_book(books)
+            books = load_books() 
+        elif choice == "2":
+            show_all_books(books)
+        elif choice == "3":
+            show_average_rating(books)
+        elif choice == "4":
+            author_statistics(books)
+        elif choice == "5":
+            delete_book(books)
+            books = load_books()
+        elif choice == "6":
+            print("До свидания!")
+            break
+        else:
+            print("Неверный пункт, попробуйте снова.")
